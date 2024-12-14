@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Odoo Pro",
+  "description": "An extension that enhances the Odoo CUST website with advanced features. You can suggest additional functionalities or stay updated for future releases. Developed by Hammad Mustafa.",
+  "version": "101",
+  "permissions": [
+    "tabs",
+    "storage",
+    {
+      "host_permissions": [
+        "https://odoo.cust.edu.pk/*"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "odoo_logo.png",
+      "48": "odoo_logo.png",
+      "128": "odoo_logo.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://odoo.cust.edu.pk/*"
+      ],
+      "js": [
+        "jquery-3.6.0.min.js", 
+        "content.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "injected.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "odoo_logo.png",
+    "48": "odoo_logo.png",
+    "128": "odoo_logo.png"
+  }
+}
