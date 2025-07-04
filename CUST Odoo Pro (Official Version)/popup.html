@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-height, initial-scale=5" />
+    <title>Extension Popup</title>
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: rgb(0, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-content {
+            position: relative;
+            width: 300px; 
+            min-height: 150px;
+            background-color: rgba(7, 7, 7, 0.146);
+            border-radius: 5px;
+            padding: 20px; 
+            color: white;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .content-main {
+            padding: 20px 20px 0px 20px;
+        }
+        .popup-content-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .img2 {
+            transform: translate(-42%);
+            transform: translate(-22%, -21%);
+            height: 200%;
+            opacity: 0.6;
+        }
+        .content {
+            min-height: 100px;
+        }
+        .showLinksAtEnd {
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .showLinksAtEnd h4 {
+            display: inline;
+            margin-right: 10px;
+        }
+        .blockAdButton {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        .blockedAds {
+            background: #0003753b;
+            border: 2px solid #0079bc;
+            border-radius: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .blockedAds h3, .blockAdButton h3{
+            margin: 6px;
+            font-size: 18px;
+        }
+        h1 {
+            margin-top: 0;
+        }
+
+        .label {
+        height: 25px;
+        width: 50px;
+        background-color: #0b0071;
+        border-radius: 30px;
+        background-size: cover;
+        -webkit-box-shadow: inset 0 0 5px 4px rgba(255, 255, 255, 1),
+            inset 0 0 20px 1px rgba(0, 0, 0, 0.488), 10px 20px 30px rgba(0, 0, 0, 0.096),
+            inset 0 0 0 3px rgba(0, 0, 0, 0.3);
+        box-shadow: inset 0 0 3px 2px #0079bc,
+            inset 0 0 20px 1px rgba(0, 0, 0, 0.488), 10px 20px 30px rgba(0, 0, 0, 0.096),
+            inset 0 0 0 3px rgba(0, 0, 0, 0.3);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        -webkit-transition: -webkit-transform 0.4s;
+        transition: -webkit-transform 0.4s;
+        transition: transform 0.4s;
+        }
+
+        #checkbox {
+        display: none;
+        }
+
+        #checkbox:checked ~ .label::before {
+            left: 15px;
+            background-image: url("neon.svg");
+            -webkit-transition: 0.4s;
+            transition: 0.4s;
+        }
+
+        .label::before {
+            position: absolute;
+            content: "";
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            background-image: url("neon.svg");
+            background-size: 100%;
+            background-position: center;
+            left: -5px;
+            transition: 0.4s;
+        }
+        .emailInput input {
+            width: 95%;
+            padding: 8px;
+            border-radius: 7px;
+            border: none;
+            background: #6cbfc259;
+            color: #f2f2f2;
+        }
+        .emailInput button {
+            color: white;
+            border-radius: 8px;
+            border: none;
+            background: #ce31ff99;
+            margin-top: 6px;
+            padding: 6px 20px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .emailInput p {
+            margin: 7px 2px;
+            font-size: 14px;
+        }
+        .emailInput p.error {
+            color: #e53333;
+        }
+        .emailInput p.success {
+            color: #29d529;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup-content">
+        <div class="content-main">
+            <div style="width: 100%;">
+                <img src="images/flux.svg" alt=""  class="popup-content-background img2">
+            </div>
+                <div style="display: flex; width: 100%; justify-content: center">
+                    <h1 style="display: flex; align-items: center; justify-content: center;">
+                        <img src="icons/odoo_logo_128.png" alt="OdoOoOooOOO Logo" width="25px">&nbsp;CUST
+                    </h1>
+                </div>
+                <p style="margin: 0; color: grey; font-style: italic;">Enter email to update dp using gravatar.</p>
+                <hr>
+                <div class="emailInput">
+                    <input type="text">
+                    <button>Save</button>
+                    <p></p>
+                </div>
+                <div class="content">
+                    <div class="blockAdButton">
+                        <h3>Odoo Pro</h3>
+                        <input type="checkbox" name="OnOff" id="OnOff" style="display: none;">
+                        <div class="container">
+                            <input id="checkbox" name="checkbox" type="checkbox" checked>
+                            <label class="label" for="checkbox"></label>
+                        </div>                          
+                    </div>
+                    <div class="blockedAds">
+                        <h3>Version</h3>
+                        <h3>1.0.1</h3>
+                    </div>
+                </div>
+                <hr />
+                <a href="https://nelston.com" target="_blank" style="text-decoration: none;"><h3 style="text-align: right; color: grey; font-style: italic; font-size: 12px; display: flex; align-items: center; justify-content: flex-end; line-height: 0.7;"><img src="icons/nelston_logo_128.png" width="18px" alt="Nelston Logo" style="transform: translateY(-1px);">&nbsp;Nelston Technologies</h3></a>
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
